@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for post in posty %}
+
+<article>
+    <h2 class="title">{{ post.tytul }}</h2>
+    <p>{{ post.tresc | linebreaksbr }}</p>
+    <small>
+        Data publikacji:
+        {{ post.data_publikacji }}
+    </small>
+    <p>  Autor: {{ post.autor }}</p>
+    <p>  data modyfikacji: {{ post.data_modyfikacji }}</p>
+</article>
+
+{% empty %}
+
+<p>Brak opublikowanych postów.</p>
+
+{% endfor %}
+
+{% endblock %}
