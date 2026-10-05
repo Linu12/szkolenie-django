@@ -5,13 +5,25 @@
 
 <article>
     <h2 class="title">{{ post.tytul }}</h2>
+    {% if post.kategoria %}
+        <p>Kategoria: {{ post.kategoria.nazwa }}</p>
+    {% endif %}
+    <p>
+        {% for tag in post.tagi.all %}
+        <span class="tag">{{ tag.nazwa }}</span>
+        {% empty %}
+        <span class="tag">Brak tagów</span>
+        {% endfor %}
+    </p>
+
+
     <p>{{ post.tresc | linebreaksbr }}</p>
     <small>
         Data publikacji:
         {{ post.data_publikacji }}
     </small>
-    <p>  Autor: {{ post.autor }}</p>
-    <p>  data modyfikacji: {{ post.data_modyfikacji }}</p>
+    <p class="autor">  Autor: {{ post.autor }}</p>
+<!--    <p>  data modyfikacji: {{ post.data_modyfikacji }}</p>-->
 </article>
 
 {% empty %}

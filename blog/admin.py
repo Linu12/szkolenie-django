@@ -1,6 +1,8 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, Kategoria, Tag
 
+admin.site.register(Kategoria)
+admin.site.register(Tag)
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
@@ -18,3 +20,5 @@ class PostAdmin(admin.ModelAdmin):
     )
 
     search_fields = ('tytul', 'tresc', 'autor')
+
+    ordering = ('-data_publikacji',)
