@@ -2,9 +2,11 @@
 
 {% block content %}
 <h2>Contact</h2> <p>This is the contact page.</p>
-
-for
-
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Send</button>
+</form>
 <p>Feel free to reach out to us at
     <a href="mailto:contact@example.com">contact@example.com</a>.
 </p>
