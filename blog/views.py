@@ -36,7 +36,11 @@ def contact(request):
             print("Wiadomość:", wiadomosc)
             print("======================")
 
-            return redirect('contact_success.html')
+            return render(
+                request,
+                'blog/contact_success.html',
+                {'title': 'Contact'}
+            )
 
         else:
             print("Błędy formularza:", form.errors)
